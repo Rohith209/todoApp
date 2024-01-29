@@ -1,0 +1,116 @@
+<div class="example-container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+      <mat-card-subtitle>Fill your details to Register!</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="registerGroup">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>First Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. Username"
+                  formControlName="firstName"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Last Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. Username"
+                  formControlName="lastName"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Ex. Username@gmail.com"
+            type="email"
+            formControlName="email"
+          />
+        </mat-form-field>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. Username"
+                  type="password"
+                  formControlName="password"
+                />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width">
+                <mat-label>Confirm Password</mat-label>
+                <input
+                  matInput
+                  placeholder="Ex. Username"
+                  type="password"
+                  formControlName="confirmPwd"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <div formGroupName="address">
+          <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Address</mat-label>
+              <textarea matInput placeholder="Ex. 100 Main St" formControlName="address1"> </textarea>
+            </mat-form-field>
+          </p>
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>City</mat-label>
+                  <input matInput placeholder="Ex. San Francisco" formControlName="city"/>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>State</mat-label>
+                  <input matInput placeholder="Ex. California" formControlName="state"/>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Postal Code</mat-label>
+                  <input
+                    matInput
+                    #postalCode
+                    maxlength="5"
+                    placeholder="Ex. 94105" 
+                    formControlName="zip"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onRegister()" [disabled]="registerGroup.invalid">Register</button> &nbsp;
+      <small
+        >Already have an account? Click <a [routerLink]="'/login'">here</a> to
+        Login.</small
+      >
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,9 @@
+.text-center {
+  text-align: center;
+}
+
+section {
+  padding: 1rem 0;
+  background-color: black;
+  color: #fff;
+}

@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Todo App</span>
+    <span class="example-spacer"></span>
+    <div class="right-menu">
+      <button mat-raised-button color="accent">
+        <mat-icon>account_circle</mat-icon> Hi {{userName}}
+      </button>
+      <button mat-raised-button color="light" (click)="openDialog()">
+        <mat-icon>add_circle</mat-icon> Add Todo
+      </button>
+      <button mat-raised-button color="warn" (click)="logOut()">
+        <mat-icon>logout</mat-icon> Logout
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
