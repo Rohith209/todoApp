@@ -75,13 +75,8 @@ export class TodoListComponent implements OnInit {
             return { ...res, id: keys[index] };
           });
           this.dataSource = new MatTableDataSource(response);
-          // this.dataSource.paginator = this.paginator;
-          // this.dataSource.sort = this.sort;
-          // console.log(
-          //   this.dataSource,
-          //   this.dataSource.paginator,
-          //   this.dataSource.sort
-          // );
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
           this.todo.isValueChanged = false;
         } else {
           this.todo.isValueChanged = false;
