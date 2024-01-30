@@ -16,9 +16,9 @@ export const appConfig: ApplicationConfig = {
       timeOut: 1000,
     }),
     provideAnimations(),
-    {
-      provide: LocationStrategy,
-      useClass: HashLocationStrategy,
-    },
+    // {
+    //   provide: LocationStrategy,
+    //   useClass: HashLocationStrategy,
+    // },
   ],
 };
