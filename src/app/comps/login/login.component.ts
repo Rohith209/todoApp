@@ -29,7 +29,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     MatCardModule,
     MatDividerModule,
     RouterLink,
-    ToastrModule
+    ToastrModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
@@ -37,26 +37,30 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private authService: AuthService,
-    private toastr: ToastrService) {
-  }
+    private toastr: ToastrService
+  ) {}
   hide = true;
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required)
-    })
+      password: new FormControl('', Validators.required),
+    });
   }
   temp: any;
   onLogin() {
     if (this.loginForm.valid) {
-      this.authService.getUser(this.loginForm.value).subscribe(resp => {
+      this.authService.getUser(this.loginForm.value).subscribe((resp) => {
         this.temp = Object.values(resp);
         this.temp = this.temp.filter((data: any) => {
-          return data.email === this.loginForm.value.email && data.password === this.loginForm.value.password
-        })
+          return (
+            data.email === this.loginForm.value.email &&
+            data.password === this.loginForm.value.password
+          );
+        });
         if (this.temp.length > 0) {
           localStorage.setItem('token', 'loggedIn');
           localStorage.setItem('user', this.temp[0].firstName);
@@ -65,7 +69,7 @@ export class LoginComponent implements OnInit {
         } else {
           this.toastr.error('Invalid Credentials', 'Error');
         }
-      })
+      });
     } else {
       this.toastr.error('Invalid Credentials', 'Error');
     }

@@ -1,35 +1,35 @@
 <h2 mat-dialog-title>Update Todo</h2>
-<mat-dialog-content class="mat-typography">
-  <form [formGroup]="editTodoGroup">
+<form [formGroup]="editTodoGroup" (ngSubmit)="updateTodo()">
+  <mat-dialog-content class="mat-typography">
     <mat-form-field class="example-full-width">
       <mat-label>Todo Name</mat-label>
-      <input matInput 
-        placeholder="Edit Todo" 
-        formControlName="todo"
-
-      />
+      <input matInput placeholder="Edit Todo" formControlName="todo" />
     </mat-form-field>
     <mat-form-field class="example-full-width">
-    <mat-label>Status</mat-label>
-    <mat-select formControlName="status">
-      @for (status of statuses; track status) {
-        <mat-option [value]="status">{{status}}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-  <mat-label>Created At</mat-label>
-  <input matInput [matDatepicker]="picker" formControlName="createdDate">
-  <mat-hint>MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-raised-button mat-dialog-close color="primary">Cancel</button>
-  <button mat-raised-button [mat-dialog-close]="true" (click)="updateTodo()" color="accent" [disabled]="editTodoGroup.invalid">
-    Update Todo
-  </button>
-</mat-dialog-actions>
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        @for (status of statuses; track status) {
+        <mat-option [value]="status">{{ status }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Created At</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="createdDate" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button [mat-dialog-close]="false" color="primary">
+      Cancel
+    </button>
+    <button mat-raised-button color="accent" [disabled]="editTodoGroup.invalid">
+      Update Todo
+    </button>
+  </mat-dialog-actions>
+</form>

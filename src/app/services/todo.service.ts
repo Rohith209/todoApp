@@ -8,6 +8,7 @@ export class TodoService {
   public URL = 'https://todoapp-7bbab-default-rtdb.firebaseio.com/';
 
   public currentTodo: [] = [];
+  public isValueChanged:boolean = false;
 
   constructor(private http: HttpClient) { }
 
